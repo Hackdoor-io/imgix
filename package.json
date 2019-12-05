@@ -2,7 +2,10 @@
   "name": "@hackdoor/imgix",
   "version": "0.0.1",
   "description": "QueryString builder for Imgix",
-  "keywords": [],
+  "keywords": [
+    "imgix",
+    "queryBuilder"
+  ],
   "main": "dist/imgix.umd.js",
   "module": "dist/imgix.es5.js",
   "typings": "dist/types/imgix.d.ts",
@@ -12,7 +15,7 @@
   "author": "Michele Riva <ciao@micheleriva.it>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Hackdoor-io/imgix"
   },
   "license": "GPLv3",
   "engines": {

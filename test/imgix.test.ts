@@ -3,7 +3,7 @@ import Imgix from "../src/imgix"
 
 describe("Testing Imgix Adjustments", () => {
 
-  const myImgix = new Imgix();
+  const myImgix = new Imgix("https://example.com");
 
   it("Should correctly set brightness", () => {
     expect(myImgix.brightness(10)).toBeInstanceOf(Imgix);
