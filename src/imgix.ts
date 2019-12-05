@@ -1,3 +1,5 @@
+import qs from "querystring";
+
 export type cardinal =
     "top"
   | "bottom"
@@ -37,52 +39,69 @@ export type format =
 
 export default class Imgix {
 
-  /**
-   * Adjustments
-   */
+  baseUrl: string;
 
-  bri?:    number;
-  con?:    number;
-  exp?:    number;
-  gam?:    number;
-  high?:   number;
-  hue?:    number;
-  invert?: boolean;
-  sat?:    number;
-  shad?:   number;
-  sharp?:  number;
-  usm?:    number;
-  usmrad?: number;
-  vib?:    number;
+  params: {
 
-  /**
-   * Blending
-   */
+    /**
+     * Adjustments
+     */
 
-  _blend?:      string;
-  _blendAlign?: [fullCardinal];
-  _blendAlpha?: number;
-  _blendCrop?:  [cardinal | "faces"]
+    bri?:    number;
+    con?:    number;
+    exp?:    number;
+    gam?:    number;
+    high?:   number;
+    hue?:    number;
+    invert?: boolean;
+    sat?:    number;
+    shad?:   number;
+    sharp?:  number;
+    usm?:    number;
+    usmrad?: number;
+    vib?:    number;
 
-  /**
-   * Size
-   */
-  h?:    number;
-  w?:    number;
-  ar?:   string;
-  _fit?: fit
+    /**
+     * Blending
+     */
 
-  /**
-   * Format
-   */
-  fm?: format;
-  q?:  number;
+    blend?:      string;
+    blendAlign?: [fullCardinal];
+    blendAlpha?: number;
+    blendCrop?:  [cardinal | "faces"]
+
+    /**
+     * Size
+     */
+    h?:    number;
+    w?:    number;
+    ar?:   string;
+    fit?: fit
+
+    /**
+     * Format
+     */
+    fm?: format;
+    q?:  number;
+
+  }
+
+
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl;
+    this.params  = {};
+  }
+
+  get(path: string): string {
+    const query = qs.stringify(this.params);
+    return `${this.baseUrl}/${path}?${query}`;
+  }
 
   brightness(x: number): Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.bri = x;
+      this.params.bri = x;
       return this;
     }
 
@@ -93,7 +112,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.con = x;
+      this.params.con = x;
       return this;
     }
 
@@ -104,7 +123,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.exp = x;
+      this.params.exp = x;
       return this;
     }
 
@@ -115,7 +134,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.gam = x;
+      this.params.gam = x;
       return this;
     }
 
@@ -126,7 +145,7 @@ export default class Imgix {
     const valid = this.between(-100, 0);
 
     if (valid(x)) {
-      this.high = x;
+      this.params.high = x;
       return this;
     }
 
@@ -137,7 +156,7 @@ export default class Imgix {
     const valid = this.between(0, 359);
 
     if (valid(x)) {
-      this.hue = x;
+      this.params.hue = x;
       return this;
     }
 
@@ -145,7 +164,7 @@ export default class Imgix {
   }
 
   invertColors(x: boolean): Imgix {
-    if (x) this.invert = x;
+    if (x) this.params.invert = x;
     return this;
   }
 
@@ -153,7 +172,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.sat = x;
+      this.params.sat = x;
       return this;
     }
 
@@ -164,7 +183,7 @@ export default class Imgix {
     const valid = this.between(0, 100);
 
     if (valid(x)) {
-      this.shad = x;
+      this.params.shad = x;
       return this;
     }
 
@@ -175,7 +194,7 @@ export default class Imgix {
     const valid = this.between(0, 100);
 
     if (valid(x)) {
-      this.sharp = x;
+      this.params.sharp = x;
       return this;
     }
 
@@ -186,7 +205,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.usm = x;
+      this.params.usm = x;
       return this;
     }
 
@@ -197,7 +216,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.usmrad = x;
+      this.params.usmrad = x;
       return this;
     }
 
@@ -208,7 +227,7 @@ export default class Imgix {
     const valid = this.between(-100, 100);
 
     if (valid(x)) {
-      this.vib = x;
+      this.params.vib = x;
       return this;
     }
 
@@ -216,12 +235,12 @@ export default class Imgix {
   }
 
   blend(x: string): Imgix {
-    this._blend = x;
+    this.params.blend = x;
     return this;
   }
 
   blendAlign(x: [fullCardinal]): Imgix {
-    this._blendAlign = x;
+    this.params.blendAlign = x;
     return this;
   }
 
@@ -229,7 +248,7 @@ export default class Imgix {
     const valid = this.between(0, 100);
 
     if (valid(x)) {
-      this._blendAlpha = x;
+      this.params.blendAlpha = x;
       return this;
     }
 
@@ -237,32 +256,32 @@ export default class Imgix {
   }
 
   blendCrop(x: [cardinal | "faces"]): Imgix {
-    this._blendCrop = x;
+    this.params.blendCrop = x;
     return this;
   }
 
   aspectRatio(x: string): Imgix {
-    this.ar = x;
+    this.params.ar = x;
     return this;
   }
 
   fit(x: fit): Imgix {
-    this._fit = x;
+    this.params.fit = x;
     return this;
   }
 
   width(x: number): Imgix {
-    this.w = x;
+    this.params.w = x;
     return this;
   }
 
   height(x: number): Imgix {
-    this.h = x;
+    this.params.h = x;
     return this;
   }
 
   format(x: format): Imgix {
-    this.fm = x;
+    this.params.fm = x;
     return this;
   }
 
@@ -270,7 +289,7 @@ export default class Imgix {
     const valid = this.between(0, 100);
 
     if (valid(x)) {
-      this.q = x;
+      this.params.q = x;
       return this;
     }
 

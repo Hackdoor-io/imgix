@@ -1,5 +1,7 @@
 <img src="/misc/cover.png" width="100%" />
 
+[![Build Status](https://travis-ci.com/Hackdoor-io/imgix.svg?branch=master)](https://travis-ci.com/Hackdoor-io/imgix)
+
 Query builder for [Imgix](https://www.imgix.com/). <br />
 
 🚧 **Under active development, highly unstable.** 🚧
