@@ -38,60 +38,68 @@ import Imgix from "@hackdoor/imgix";
 const imgix = new Imgix("https://my-endpoint.imgix.net");
 ```
 
-we can use the following methods:
+Status legenda:
 
-### Adjustments
+| Emoji | Meaning          |
+|-------|------------------|
+| 🚀    | Deployed         |
+| 🚧    | Work in progress |
+| ✅    | Tested           |
+| ‼️    | Untested         |
 
-- **Brightness** \
-  A number between `-100` and `100`
-  ```ts
-  imgix.brightness(50)
-  ```
-- **Contrast** \
-  A number between `-100` and `100`
-  ```ts
-  imgix.contrast(50);
-  ```
-- **Exposure** \
-  A number between `-100` and `100`
-  ```ts
-  imgix.exposure(50);
-  ```
-- **Gamma** \
-  A number between `-100` and `100`
-  ```ts
-  imgix.gamma(50);
-  ```
-- **Highlight** \
-  A number between `-100` and `0`
-  ```ts
-  imgix.highlight(-50);
-  ```
-- **Hue Shift** \
-  A number between `0` and `359`
-  ```ts
-  imgix.hueShift(50);
-  ```
-- **Invert** \
-  A `boolean` value
-  ```ts
-  imgix.invert(true);
-  ```
-- **Saturation** \
-  A number between `-100` and `100`
-  ```ts
-  imgix.saturation(50);
-  ```
-- **Shadow** \
-  A number between `0` and `100`
-  ```ts
-  imgix.shadow(50);
-  ```
-- **Sharpen** \
-  A number between `0` and `100`
-  ```ts
-  imgix.sharpen(50);
-  ```
+
+## Adjustments
+
+#### Brightness 🚀 ✅
+A number between `-100` and `100`
+```ts
+imgix.brightness(50)
+```
+#### Contrast 🚀 ✅
+A number between `-100` and `100`
+```ts
+imgix.contrast(50);
+```
+#### Exposure 🚀 ✅
+A number between `-100` and `100`
+```ts
+imgix.exposure(50);
+```
+#### Gamma 🚀 ✅
+A number between `-100` and `100`
+```ts
+imgix.gamma(50);
+```
+#### Highlight 🚀 ✅
+A number between `-100` and `0`
+```ts
+imgix.highlight(-50);
+```
+#### Hue Shift 🚀 ✅
+A number between `0` and `359`
+```ts
+imgix.hueShift(50);
+```
+#### Invert 🚀 ✅
+A `boolean` value
+```ts
+imgix.invert(true);
+```
+#### Saturation 🚀 ✅
+A number between `-100` and `100`
+```ts
+imgix.saturation(50);
+```
+#### Shadow 🚀 ✅
+A number between `0` and `100`
+```ts
+imgix.shadow(50);
+```
+#### Sharpen 🚀 ✅
+A number between `0` and `100`
+```ts
+imgix.sharpen(50);
+```
   
 # License
 Licensed under the [GPLv3](/LICENSE.md) license.

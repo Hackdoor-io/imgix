@@ -83,8 +83,8 @@ describe('Testing Imgix Adjustments', () => {
     }
   })
 
-  it('Should correctly set invertColors', () => {
-    expect(myImgix.invertColors(true)).toBeInstanceOf(Imgix)
+  it('Should correctly set invert', () => {
+    expect(myImgix.invert(true)).toBeInstanceOf(Imgix)
   })
 
   it('Should correctly set saturation', () => {
