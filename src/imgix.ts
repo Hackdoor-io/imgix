@@ -126,7 +126,7 @@ export default class Imgix {
     throw Error(`Hue Shift value must be a number between 0 and 359.`)
   }
 
-  invertColors(x: boolean): Imgix {
+  invert(x: boolean): Imgix {
     if (x) this.params.invert = x
     return this
   }
