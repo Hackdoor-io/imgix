@@ -3,7 +3,7 @@ import * as qs from 'querystring'
 import { cardinal, fullCardinal, fit, format } from './types'
 
 export default class Imgix {
-  baseUrl: string
+  readonly baseUrl: string
 
   params: {
     /**
@@ -196,6 +196,12 @@ export default class Imgix {
 
     throw Error(`Vibrance value must be a number between -100 and 100.`)
   }
+
+  /**
+   * ===========================================================================
+   * BLENDING
+   * ===========================================================================
+   */
 
   blend(x: string): Imgix {
     this.params.blend = x
