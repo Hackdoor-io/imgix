@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/Hackdoor-io/imgix.svg?branch=master)](https://travis-ci.com/Hackdoor-io/imgix)
 ![Codecov](https://img.shields.io/codecov/c/github/hackdoor-io/imgix)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@hackdoor/imgix)
+![npm](https://img.shields.io/npm/v/@hackdoor/imgix?color=blue)
 
 Query builder for [Imgix](https://www.imgix.com/). <br />
 
@@ -109,5 +110,55 @@ A number between `-100` and `100`
 imgix.vibrance(50);
 ```
   
+## Blending
+
+#### [Blend](https://docs.imgix.com/apis/url/blending/blend)
+A string representing an hex color (`#000`) or an image url (`https://example.com/img.jpg`)
+```ts
+imgix.blend("#F500F0")
+```
+#### [Blend Align](https://docs.imgix.com/apis/url/blending/blend-align)
+One of the following values: `top`, `middle`, `bottom`, `left`, `center`, `right`
+```ts
+imgix.blendAlign("top")
+```
+#### [Blend Crop](https://docs.imgix.com/apis/url/blending/blend-crop)
+One of the following values: `top`, `middle`, `bottom`, `left`, `center`, `right`, `faces`
+```ts
+imgix.blendCrop("faces")
+```
+
+## Size
+
+#### [Aspect Ratio](https://docs.imgix.com/apis/url/size/ar)
+A string in the form of `W:H` (width, height)
+```ts
+imgix.aspectRatio("16:9")
+```
+#### [Width](https://docs.imgix.com/apis/url/size/w)
+A number
+```ts
+imgix.width(1920)
+```
+#### [Width](https://docs.imgix.com/apis/url/size/h)
+A number
+```ts
+imgix.height(1080)
+```
+
+## Format
+
+#### [Output Format](https://docs.imgix.com/apis/url/format/fm)
+A string, one of: `gif`, `jp2`, `jpg`, `json`, `jxr`, `pjpg`, `mp4`, `png`, `png8`, `png32`, `webm`, `webp`
+```ts
+imgix.format("png")
+```
+
+#### [Output Quality](https://docs.imgix.com/apis/url/format/q)
+A number between `0` and `100`
+```ts
+imgix.quality(75")
+```
+
 # License
 Licensed under the [GPLv3](/LICENSE.md) license.
