@@ -157,7 +157,7 @@ imgix.format("png")
 #### [Output Quality](https://docs.imgix.com/apis/url/format/q)
 A number between `0` and `100`
 ```ts
-imgix.quality(75")
+imgix.quality(75)
 ```
 
 # License
