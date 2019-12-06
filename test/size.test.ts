@@ -6,10 +6,12 @@ describe('Testing Imgix Size', () => {
     .width(500)
     .height(600)
     .fit('crop')
+    .quality(45)
 
   it('Should correctly set size', () => {
     expect(myImage.params?.w).toBe(500)
     expect(myImage.params?.h).toBe(600)
     expect(myImage.params?.fit).toBe('crop')
+    expect(myImage.params?.q).toBe(45)
   })
 })
