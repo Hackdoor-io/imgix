@@ -1,8 +1,8 @@
 <img src="/misc/cover.png" width="100%" />
 
-[![Build Status](https://travis-ci.com/Hackdoor-io/imgix.svg?branch=master&style=flat-square)](https://travis-ci.com/Hackdoor-io/imgix)
-![Codecov](https://img.shields.io/codecov/c/github/hackdoor-io/imgix?style=flat-square)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/@hackdoor/imgix?style=flat-square)
+[![Build Status](https://travis-ci.com/Hackdoor-io/imgix.svg?branch=master)](https://travis-ci.com/Hackdoor-io/imgix)
+![Codecov](https://img.shields.io/codecov/c/github/hackdoor-io/imgix)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@hackdoor/imgix)
 
 Query builder for [Imgix](https://www.imgix.com/). <br />
 
@@ -38,67 +38,75 @@ import Imgix from "@hackdoor/imgix";
 const imgix = new Imgix("https://my-endpoint.imgix.net");
 ```
 
-Status legenda:
-
-| Emoji | Meaning          |
-|-------|------------------|
-| 🚀    | Deployed         |
-| 🚧    | Work in progress |
-| ✅    | Tested           |
-| ‼️    | Untested         |
-
-
 ## Adjustments
 
-#### Brightness 🚀 ✅
+#### [Brightness](https://docs.imgix.com/apis/url/adjustment/bri)
 A number between `-100` and `100`
 ```ts
 imgix.brightness(50)
 ```
-#### Contrast 🚀 ✅
+#### [Contrast](https://docs.imgix.com/apis/url/adjustment/con)
 A number between `-100` and `100`
 ```ts
 imgix.contrast(50);
 ```
-#### Exposure 🚀 ✅
+#### [Exposure](https://docs.imgix.com/apis/url/adjustment/exp)
 A number between `-100` and `100`
 ```ts
 imgix.exposure(50);
 ```
-#### Gamma 🚀 ✅
+#### [Gamma](https://docs.imgix.com/apis/url/adjustment/gam)
 A number between `-100` and `100`
 ```ts
 imgix.gamma(50);
 ```
-#### Highlight 🚀 ✅
+#### [Highlight](https://docs.imgix.com/apis/url/adjustment/high)
 A number between `-100` and `0`
 ```ts
 imgix.highlight(-50);
 ```
-#### Hue Shift 🚀 ✅
+#### [Hue Shift](https://docs.imgix.com/apis/url/adjustment/hue)
 A number between `0` and `359`
 ```ts
 imgix.hueShift(50);
 ```
-#### Invert 🚀 ✅
+#### [Invert](https://docs.imgix.com/apis/url/adjustment/invert)
 A `boolean` value
 ```ts
 imgix.invert(true);
 ```
-#### Saturation 🚀 ✅
+#### [Saturation](https://docs.imgix.com/apis/url/adjustment/sat)
 A number between `-100` and `100`
 ```ts
 imgix.saturation(50);
 ```
-#### Shadow 🚀 ✅
+#### [Shadow](https://docs.imgix.com/apis/url/adjustment/shad)
 A number between `0` and `100`
 ```ts
 imgix.shadow(50);
 ```
-#### Sharpen 🚀 ✅
+#### [Sharpen](https://docs.imgix.com/apis/url/adjustment/sharp)
 A number between `0` and `100`
 ```ts
 imgix.sharpen(50);
+```
+
+#### [Unsharp Mask](https://docs.imgix.com/apis/url/adjustment/usm)
+A number between `-100` and `100`
+```ts
+imgix.unsharpMask(50);
+```
+
+#### [Unsharp Mask Radius](https://docs.imgix.com/apis/url/adjustment/usmrad)
+A number between `-100` and `100`
+```ts
+imgix.unsharpMaskRadius(50);
+```
+
+#### [Vibrance](https://docs.imgix.com/apis/url/adjustment/vib)
+A number between `-100` and `100`
+```ts
+imgix.vibrance(50);
 ```
   
 # License
