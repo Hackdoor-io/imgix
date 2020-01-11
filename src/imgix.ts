@@ -1,6 +1,6 @@
 import * as qs from 'querystring'
 
-import { cardinal, fullCardinal, fit, format } from './types'
+import { cardinal, fullCardinal, fit, format, palette } from './types'
 
 export default class Imgix {
   readonly baseUrl: string
@@ -48,6 +48,13 @@ export default class Imgix {
 
     fm?: format
     q?: number
+
+    /**
+     * Color palette
+     */
+    palette?: palette
+    colors?: number
+    prefix?: string | number
   }
 
   constructor(baseUrl: string) {
@@ -56,9 +63,18 @@ export default class Imgix {
   }
 
   /**
+   * @method build
+   * @returns {Imgix}
+   */
+
+  build() {
+    this.params = {}
+  }
+
+  /**
    * @method get
    * @param  {string} path
-   * @returns string
+   * @returns {string}
    */
 
   get(path: string): string {
@@ -407,6 +423,27 @@ export default class Imgix {
     }
 
     throw Error(`Quality value must be a number between -100 and 100.`)
+  }
+
+  palette(x: palette): Imgix {
+    this.params.palette = x
+    return this
+  }
+
+  colors(x: number): Imgix {
+    const valid = this.between(0, 16)
+
+    if (valid(x)) {
+      this.params.colors = x
+      return this
+    }
+
+    throw Error('Colors value must be a number between 0 and 16.')
+  }
+
+  prefix(x: string | number): Imgix {
+    this.params.prefix = x
+    return this
   }
 
   private between(x: number, y: number): (z: number) => boolean {

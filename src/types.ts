@@ -27,3 +27,5 @@ export type format =
   | 'png32'
   | 'webm'
   | 'webp'
+
+export type palette = 'css' | 'json'
