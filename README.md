@@ -23,7 +23,7 @@ yarn add @hackdoor/imgix
 import Imgix from "@hackdoor/imgix";
 
 const imgix   = new Imgix("https://my-imgix-server-url.com");
-const myImage = imgix.width(300).height(500).fit("crop").get("/my-image-path");
+const myImage = imgix.build().width(300).height(500).fit("crop").get("/my-image-path");
 
 console.log(myImage);
 // => "https://my-imgix-server-url.com/my-image-path?fit=crop&w=300&h=500"
@@ -158,6 +158,20 @@ imgix.format("png")
 A number between `0` and `100`
 ```ts
 imgix.quality(75)
+```
+
+## Color Palette
+
+#### [Colors](https://docs.imgix.com/apis/url/color-palette/colors)
+A number between `0` and `16`
+```ts
+imgix.colors(5)
+```
+
+#### [Palette](https://docs.imgix.com/apis/url/color-palette/palette)
+A string, one of: `css`, `json`
+```ts
+imgix.palette("json")
 ```
 
 # License
