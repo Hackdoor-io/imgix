@@ -67,8 +67,9 @@ export default class Imgix {
    * @returns {Imgix}
    */
 
-  build() {
+  build(): Imgix {
     this.params = {}
+    return this
   }
 
   /**
