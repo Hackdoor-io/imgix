@@ -7,8 +7,6 @@
 
 Query builder for [Imgix](https://www.imgix.com/). <br />
 
-🚧 **Under active development, highly unstable.** 🚧
-
 # Installation
 
 ```bash
