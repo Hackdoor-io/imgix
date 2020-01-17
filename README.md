@@ -4,6 +4,7 @@
 ![Codecov](https://img.shields.io/codecov/c/github/hackdoor-io/imgix)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@hackdoor/imgix)
 ![npm](https://img.shields.io/npm/v/@hackdoor/imgix?color=blue)
+![npm](https://img.shields.io/npm/dt/@hackdoor/imgix?logo=npm)
 
 Query builder for [Imgix](https://www.imgix.com). <br />
 
