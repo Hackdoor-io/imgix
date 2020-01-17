@@ -291,4 +291,6 @@ imgix.palette('json')
 
 # License
 
+[!FSF](https://static.fsf.org/nosvn/associate/crm/3861816.png)
+
 Licensed under the [GPLv3](/LICENSE.md) license.
