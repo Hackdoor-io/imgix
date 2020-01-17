@@ -1,6 +1,6 @@
 import * as qs from 'querystring'
 
-import { cardinal, fullCardinal, fit, format } from './types'
+import { cardinal, fullCardinal, fit, format, flip, orient } from './types'
 
 export default class Imgix {
   readonly baseUrl: string
@@ -48,6 +48,13 @@ export default class Imgix {
 
     fm?: format
     q?: number
+
+    /**
+     * Rotation
+     */
+    flip?: flip
+    orient?: orient
+    rot?: number
   }
 
   constructor(baseUrl: string) {
@@ -58,12 +65,27 @@ export default class Imgix {
   /**
    * @method get
    * @param  {string} path
-   * @returns string
+   * @returns {string}
    */
 
   get(path: string): string {
     const query = qs.stringify(this.params)
     return `${this.baseUrl}/${path}?${query}`
+  }
+
+  /**
+   * @method fromS3
+   * @param {string} fullPath
+   * @returns {string}
+   * @description converts an absolute AWS S3 url into an absolute
+   * imgix url.
+   */
+
+  fromS3(fullPath: string): string {
+    const path = fullPath.replace(/([a-z][a-z0-9+\-.]*:(\/\/[^/?#]+)?)?/i, '')
+    const query = qs.stringify(this.params)
+
+    return `${this.baseUrl}${path}?${query}`
   }
 
   /**
@@ -349,6 +371,12 @@ export default class Imgix {
   }
 
   /**
+   * ===========================================================================
+   * SIZE
+   * ===========================================================================
+   */
+
+  /**
    * @method fit
    * @param {fit} x
    * @returns {Imgix}
@@ -407,6 +435,45 @@ export default class Imgix {
     }
 
     throw Error(`Quality value must be a number between -100 and 100.`)
+  }
+
+  /**
+   * ===========================================================================
+   * ROTATION
+   * ===========================================================================
+   */
+
+  /**
+   * @method flip
+   * @param {flip} x
+   * @returns {Imgix}
+   */
+
+  flip(x: flip): Imgix {
+    this.params.flip = x
+    return this
+  }
+
+  /**
+   * @method orient
+   * @param {orient} x
+   * @return {Imgix}
+   */
+
+  orient(x: orient): Imgix {
+    this.params.orient = x
+    return this
+  }
+
+  rotation(x: number): Imgix {
+    const valid = this.between(0, 359)
+
+    if (valid(x)) {
+      this.params.rot = x
+      return this
+    }
+
+    throw Error(`Rotation value must be a number between 0 and 359.`)
   }
 
   private between(x: number, y: number): (z: number) => boolean {
