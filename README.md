@@ -259,6 +259,24 @@ A number between `0` and `359`
 imgix.rotation(180)
 ```
 
+## Color Palette
+
+#### [Colors](https://docs.imgix.com/apis/url/color-palette/colors)
+
+A number between `0` and `16`
+
+```ts
+imgix.colors(5)
+```
+
+#### [Palette](https://docs.imgix.com/apis/url/color-palette/palette)
+
+A string, one of: `css`, `json`
+
+```ts
+imgix.palette('json')
+```
+
 # License
 
 Licensed under the [GPLv3](/LICENSE.md) license.

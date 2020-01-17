@@ -31,3 +31,5 @@ export type format =
 export type flip = 'v' | 'h' | 'hv'
 
 export type orient = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 90 | 180 | 270
+
+export type palette = 'css' | 'json'

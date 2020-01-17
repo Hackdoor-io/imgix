@@ -1,6 +1,6 @@
 import * as qs from 'querystring'
 
-import { cardinal, fullCardinal, fit, format, flip, orient } from './types'
+import { cardinal, fullCardinal, fit, format, flip, orient, palette } from './types'
 
 export default class Imgix {
   readonly baseUrl: string
@@ -52,14 +52,33 @@ export default class Imgix {
     /**
      * Rotation
      */
+
     flip?: flip
     orient?: orient
     rot?: number
+
+    /*
+     * Color palette
+     */
+
+    palette?: palette
+    colors?: number
+    prefix?: string | number
   }
 
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl
     this.params = {}
+  }
+
+  /**
+   * @method build
+   * @returns {Imgix}
+   */
+
+  build(): Imgix {
+    this.params = {}
+    return this
   }
 
   /**
@@ -474,6 +493,33 @@ export default class Imgix {
     }
 
     throw Error(`Rotation value must be a number between 0 and 359.`)
+  }
+
+  /**
+   * ===========================================================================
+   * COLOR PALETTE
+   * ===========================================================================
+   */
+
+  palette(x: palette): Imgix {
+    this.params.palette = x
+    return this
+  }
+
+  colors(x: number): Imgix {
+    const valid = this.between(0, 16)
+
+    if (valid(x)) {
+      this.params.colors = x
+      return this
+    }
+
+    throw Error('Colors value must be a number between 0 and 16.')
+  }
+
+  prefix(x: string | number): Imgix {
+    this.params.prefix = x
+    return this
   }
 
   private between(x: number, y: number): (z: number) => boolean {
