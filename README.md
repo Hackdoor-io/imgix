@@ -22,6 +22,7 @@ import Imgix from '@hackdoor/imgix'
 
 const imgix = new Imgix('https://my-imgix-server-url.com')
 const myImage = imgix
+  .build()
   .width(300)
   .height(500)
   .fit('crop')
@@ -31,21 +32,14 @@ console.log(myImage)
 // => "https://my-imgix-server-url.com/my-image-path?fit=crop&w=300&h=500"
 ```
 
-# Converting S3 URL to Imgix Url
+# Methods Legenda
 
-```ts
-import Imgix from '@hackdoor/imgix'
-
-const imgix = new Imgix('https://my-imgix-server-url.com')
-const myImage = imgix
-  .width(300)
-  .height(500)
-  .fit('crop')
-  .fromS3('https://my-s3-bucket.s3.amazonaws.com/foo/bar/baz.png')
-
-console.log(myImage)
-// => "https://example.com/foo/bar/baz.png?w=500&h=600&fit=crop"
-```
+- [Adjustments](#adjustments)
+- [Blending](#blending)
+- [Size](#size)
+- [Format](#format)
+- [Rotation](#rotation)
+- [Color Palette](#color-palette)
 
 # Available Methods
 
@@ -55,6 +49,23 @@ Currently available methods. Let's pretend whe have the following **Imgix** inst
 import Imgix from '@hackdoor/imgix'
 
 const imgix = new Imgix('https://my-endpoint.imgix.net')
+```
+
+## Converting S3 URL to Imgix Url
+
+```ts
+import Imgix from '@hackdoor/imgix'
+
+const imgix = new Imgix('https://my-endpoint.imgix.net')
+const myImage = imgix
+  .build()
+  .width(300)
+  .height(500)
+  .fit('crop')
+  .fromS3('https://my-s3-bucket.s3.amazonaws.com/foo/bar/baz.png')
+
+console.log(myImage)
+// => "https://my-endpoint.imgix.net/foo/bar/baz.png?w=500&h=600&fit=crop"
 ```
 
 ## Adjustments
