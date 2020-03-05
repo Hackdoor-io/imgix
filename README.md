@@ -289,6 +289,14 @@ A string, one of: `css`, `json`
 imgix.palette('json')
 ```
 
+#### [Auto](https://docs.imgix.com/apis/url/auto/auto)
+
+A string, one of: `compress`, `enhance`, `format`, `redeye`
+
+```ts
+imgix.auto('compress')
+```
+
 # License
 
 ![FSF](https://static.fsf.org/nosvn/associate/crm/3861816.png)
