@@ -1,6 +1,6 @@
 {
   "name": "@hackdoor/imgix",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "QueryString builder for Imgix",
   "keywords": [
     "imgix",
