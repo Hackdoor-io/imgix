@@ -1,6 +1,6 @@
 import * as qs from 'querystring'
 
-import { cardinal, fullCardinal, fit, format, flip, orient, palette } from './types'
+import { cardinal, fullCardinal, fit, format, flip, orient, palette, auto } from './types'
 
 export default class Imgix {
   readonly baseUrl: string
@@ -64,6 +64,11 @@ export default class Imgix {
     palette?: palette
     colors?: number
     prefix?: string | number
+
+    /*
+     * Auto
+     */
+    auto?: auto
   }
 
   constructor(baseUrl: string) {
@@ -519,6 +524,17 @@ export default class Imgix {
 
   prefix(x: string | number): Imgix {
     this.params.prefix = x
+    return this
+  }
+
+  /**
+   * ===========================================================================
+   * AUTO
+   * ===========================================================================
+   */
+
+  auto(x: auto): Imgix {
+    this.params.auto = x
     return this
   }
 

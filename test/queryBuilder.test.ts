@@ -19,9 +19,10 @@ describe('Testing getS3 generator', () => {
     .width(500)
     .height(600)
     .fit('crop')
+    .auto('format')
     .fromS3('https://my-s3-bucket.s3.amazonaws.com/foo/bar/baz.png')
 
   it('Should return a correct query string', () => {
-    expect(myImage).toBe('https://example.com/foo/bar/baz.png?w=500&h=600&fit=crop')
+    expect(myImage).toBe('https://example.com/foo/bar/baz.png?w=500&h=600&fit=crop&auto=format')
   })
 })
